@@ -1,0 +1,208 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,600,700);
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+}
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+body{
+	background-color: #2a2e39;
+	color: #fff;
+	margin: 0;
+	height: 100%;
+	width: 100%
+}
+
+a:link, a:visited {color: #fff; text-decoration: none;}
+a:hover, a:active {font-weight: bold;}
+
+
+/* =全局类 */
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.metabar{
+	position: fixed;
+	display: block;
+	width: 100%;
+	z-index: 500;
+	font-size: 14px;
+	background-color: #2f2f3f;
+	color: rgba(255, 255, 255, 1);
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-style: normal;
+	box-sizing: border-box;
+	opacity: 0;
+	transition: opacity .5s;
+}
+
+.metabar--top{
+	top: 0;
+	height: 65px;
+	line-height: 65px;
+}
+
+.metabar--top:hover{
+	opacity: 0.95;
+}
+
+.metabar__leftblock{
+	float: left;
+	margin-left: 5px;
+	font-size: 2em;
+}
+.metabar__leftblock span{
+	margin-left: -300px;
+	overflow: hidden;
+}
+
+
+
+.slides1__title{
+	text-align: center;
+	margin: 30px 0 10px;
+	font-weight: 900;
+	font-size: 4em;
+	font-family: "Playfair Display", Georgia, serif;
+	line-height: 1;
+}
+
+/* The gallery div  */
+.gallery3d{
+	position: relative;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+/* The div contains photos.
+ * It may have some brother divs to show info.
+ */
+.gallery3d__container{
+	position: relative;
+	width: 482px;
+	min-height: 360px;
+	margin: 0 auto;
+}
+
+/* Thses elements contain photos and photo desc */
+.gallery3d__container a{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 482px;
+	height: 360px;
+}
+
+.gallery3d--center,
+.gallery3d--prev,
+.gallery3d--next{
+	box-shadow: 2px 10px 10px hsla(0, 0%, 0%, 0.3);
+}
+
+.gallery3d--center,
+.gallery3d__nav{
+	z-index: 100;
+}
+
+.gallery3d__img{
+	padding-left: 1px;
+}
+
+.gallery3d__imgdesc{
+	position: absolute;
+	bottom: -52px;
+	width: 100%;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+	font-size: 18px;
+	color: #333;
+	opacity: 0;
+}
+
+.gallery3d--center .gallery3d__imgdesc{
+	margin: 0;
+	opacity: 1;
+}
+
+/*gallery navbutton*/
+.gallery3d__nav{
+	position: absolute;
+	left: 50%;
+	bottom: -105px;
+	width: 70px;
+	margin-left: -37px;
+	text-align: center;
+	
+}
+
+.gallery3d__nav button{
+	background: transparent;
+	opacity: 0.5;
+	width: 24px;
+	margin-left: 8px;
+	border: none;
+	overflow: hidden;
+	cursor:pointer;
+	outline: none;
+}
+.fa{
+	color: #fff;
+}
+.fa-angle-left,.fa-angle-right{
+	font-size: 3em;
+}
+.gallery3d__nav button:hover{
+	opacity:1;
+}
+
+#gallery3d__nav--next{
+	background-position: top right;
+	margin-right: 0;
+}
+
+/* The number of photos less than 3 */
+.gallery3d__container--lt3{
+	width: auto;
+	float: left;
+	left: 50%;
+}
+.gallery3d__container--lt3 a{
+	position: static;
+	float: left;
+	margin-right: 10px;
+}
+.gallery3d__container--lt3 .gallery3d__imgdesc{
+	position: static;
+	margin-top: 20px;
+	opacity: 1;
+}
+
+
+/*CSS with animation*/
+.gallery3d__container a,
+.gallery3d__imgdesc,
+.gallery3d__nav button{
+	transition: all 0.4s ease-in-out;
+}
+
+.gallery3d__container{
+	perspective: 1000px;
+	transform-style: preserve-3d;
+}
+.gallery3d--prev{
+	transform: translateX(-380px) scale(0.7) rotateY(65deg);
+}
+.gallery3d--next{
+	transform: translateX(380px) scale(0.7) rotateY(-65deg);
+}

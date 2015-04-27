@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>昙华林</title>
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/page1.css">
+</head>
+<body>
+	<div class="metabar metabar--top">
+		<div class="metabar__leftblock"><a href="index.html"><i class="fa fa-fw fa-home"></i><span>Home</span></a></div>
+	</div>
+	<header class="slides1__title">
+		Enjoy the city &amp our life!
+	</header>
+	<div id="slides1">
+		<a ><img src="images/item001.jpg" alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item002.jpg" alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item003.jpg" alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item004.jpg" alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item005.jpg" alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item06.jpg"  alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item007.jpg" alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item008.jpg" alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item009.jpg" alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item010.jpg" alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item011.jpg" alt="昙华林" width="480" height="360"></a>
+		<a ><img src="images/item012.jpg" alt="昙华林" width="480" height="360"></a>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.gallery3d.js"></script>
+	<script>
+		(function(){
+			$('#slides1').gallery3d();
+			$(window).on('scroll', function(event, delta){
+				console.log(event);
+			})
+			$(window).on('click', function(){
+				console.log('click');
+			})
+		})();
+	</script>
+</body>
+</html>
