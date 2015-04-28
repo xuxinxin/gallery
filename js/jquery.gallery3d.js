@@ -9,8 +9,8 @@
 		return this.each(function(){
 			/*初始化*/
 			var $this = $(this),
+				$links = $this.find('> div'),
 				$container = $('<div class="gallery3d__container" />').prependTo($this),
-				$links = $this.find('> a'),
 				linksLength = $links.length,
 				$nav,$navPrev,$navNext,
 				current = options.current,
@@ -32,6 +32,8 @@
 				setImg();
 				setNav();
 
+
+
 				setTimeout(autoPlay, options.sec*1000);
 
 			}//If linksLength <3 need more process
@@ -50,12 +52,19 @@
 			 */
 			function setImg (direction) {
 				var $current, $prev, $next, $others;
+				var backsrc;
+					imgName = ['a','b','c','d','e','f','g','h','i','g','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+				backsrc = "images/"+imgName[Math.round(Math.random()*25)]+".jpg";
+				console.log(backsrc);
+
 				if(current < 0) current = linksLength-1;
 				if(current > linksLength-1) current = 0;
 
 				$current = $links.eq(current);
 				$prev = (current == 0) ? $links.eq(linksLength-1) : $links.eq(current-1);
 				$next = (current == linksLength-1) ? $links.eq(0) : $links.eq(current+1);
+
+				$current.add($prev).add($next).find('.gallery3d--backimg').remove();
 
 				if(!direction){ //without button click
 					$current.addClass('gallery3d--center');
@@ -72,6 +81,11 @@
 				}
 				$others = $links.not($prev).not($current).not($next);
 				$others.removeClass().fadeTo(1,0);
+
+
+				$backImage = $('<img class="gallery3d--backimg">').appendTo($current);
+				$backImage.attr("src", backsrc);
+
 			}
 
 			/*
@@ -88,7 +102,8 @@
 			}
 			/*Prevent user click too fast*/
 			function clickFast () {
-				$navPrev.add($navNext).unbind('click');
+				//$navPrev.add($navNext).unbind('click');
+				$.unbind('click');
 				setTimeout(function(){
 					$navPrev.on('click', prevSlide);
 					$navNext.on('click', nextSlide);
@@ -118,6 +133,9 @@
 				}
 			}
 
+			function clearFlip(){
+				$links.find('.flip').removeClass('flip');
+			}
 		})
 	}
 })();

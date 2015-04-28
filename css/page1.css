@@ -96,7 +96,7 @@ a:hover, a:active {font-weight: bold;}
 }
 
 /* Thses elements contain photos and photo desc */
-.gallery3d__container a{
+.gallery3d__container div{
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -135,6 +135,44 @@ a:hover, a:active {font-weight: bold;}
 	opacity: 1;
 }
 
+.gallery3d--center{
+	display: inline-block;
+	-moz-transform-style: preserve-3d; /* Specify all child elements inside this DIV maintain the same perspective */
+	-webkit-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-moz-transition: all 0.6s ease-in-out 0.3s; /* final 0.3s specifies delay before effect kicks in */
+	-webkit-transition: all 0.6s ease-in-out 0.3s;
+	-o-transition: all 0.6s ease-in-out 0.3s;
+	transition: all 0.6s ease-in-out 0.3s;
+}
+
+
+.gallery3d--center img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-moz-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.gallery3d--backimg{
+	-moz-transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.gallery3d__container:hover > .gallery3d--center{
+	-moz-transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+
 /*gallery navbutton*/
 .gallery3d__nav{
 	position: absolute;
@@ -143,7 +181,7 @@ a:hover, a:active {font-weight: bold;}
 	width: 70px;
 	margin-left: -37px;
 	text-align: center;
-	
+
 }
 
 .gallery3d__nav button{
@@ -177,7 +215,7 @@ a:hover, a:active {font-weight: bold;}
 	float: left;
 	left: 50%;
 }
-.gallery3d__container--lt3 a{
+.gallery3d__container--lt3 div{
 	position: static;
 	float: left;
 	margin-right: 10px;
@@ -190,7 +228,7 @@ a:hover, a:active {font-weight: bold;}
 
 
 /*CSS with animation*/
-.gallery3d__container a,
+.gallery3d__container div,
 .gallery3d__imgdesc,
 .gallery3d__nav button{
 	transition: all 0.4s ease-in-out;
