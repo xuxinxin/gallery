@@ -82,7 +82,7 @@
 				$others = $links.not($prev).not($current).not($next);
 				$others.removeClass().fadeTo(1,0);
 
-
+				$current.find('img').addClass('gallery3d--frontimg');
 				$backImage = $('<img class="gallery3d--backimg">').appendTo($current);
 				$backImage.attr("src", backsrc);
 
