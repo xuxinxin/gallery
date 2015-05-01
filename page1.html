@@ -8,9 +8,11 @@
 </head>
 <body>
 	<div class="metabar metabar--top">
-		<div class="metabar__leftblock"><a href="index.html"><i class="fa fa-fw fa-home"></i><span>Home</span></a></div>
+		<div class="metabar__leftblock">
+		<a href="index.html"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
+		<a href="" class="randomLink"><i class="fa fa-fw fa-paper-plane"></i><span>First page</span></a></div>
 	</div>
-	<header class="slides1__title">
+	<header class="slides__title">
 		Enjoy the city &amp our life!
 	</header>
 	<div id="slides1">
@@ -19,7 +21,7 @@
 		<div ><img src="images/item003.jpg" alt="昙华林" width="480" height="360"></div>
 		<div ><img src="images/item004.jpg" alt="昙华林" width="480" height="360"></div>
 		<div ><img src="images/item005.jpg" alt="昙华林" width="480" height="360"></div>
-		<div ><img src="images/item06.jpg"  alt="昙华林" width="480" height="360"></div>
+		<div ><img src="images/item006.jpg" alt="昙华林" width="480" height="360"></div>
 		<div ><img src="images/item007.jpg" alt="昙华林" width="480" height="360"></div>
 		<div ><img src="images/item008.jpg" alt="昙华林" width="480" height="360"></div>
 		<div ><img src="images/item009.jpg" alt="昙华林" width="480" height="360"></div>
@@ -30,6 +32,12 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.gallery3d.js"></script>
 	<script>
+		setInterval(function(){
+			var randomValue = Math.floor(Math.random()*2)+1,
+				randomURL = 'page'+randomValue+'.html';
+			$('.randomLink').attr('href', randomURL);
+		}, 5000);
+
 		(function(){
 			$('#slides1').gallery3d();
 		})();

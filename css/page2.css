@@ -1,0 +1,184 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,600,700);
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+}
+
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0; padding: 0;}
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+body{
+	background-color: #2a2e39;
+	color: #fff;
+	height: 100%;
+	width: 100%
+}
+
+a:link, a:visited {color: #fff; text-decoration: none;}
+a:hover, a:active {font-weight: bold;}
+
+
+/* =全局类 */
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.metabar{
+	position: fixed;
+	display: block;
+	width: 100%;
+	z-index: 500;
+	font-size: 14px;
+	background-color: #2f2f3f;
+	color: rgba(255, 255, 255, 1);
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-style: normal;
+	box-sizing: border-box;
+	opacity: 0;
+	transition: opacity .5s;
+}
+
+.metabar--top{
+	top: 0;
+	height: 65px;
+	line-height: 65px;
+}
+
+.metabar--top:hover{
+	opacity: 0.95;
+}
+
+.metabar__leftblock a{
+	float: left;
+	margin-left: 15px;
+	text-align: center;
+	font-size: 2em;
+}
+
+.metabar__leftblock a:first-child{
+	margin-left: 5px;
+}
+.metabar__leftblock span{
+	display: none;
+	overflow: hidden;
+}
+
+
+
+.slides__title{
+	text-align: center;
+	margin: 30px 0 10px;
+	font-weight: 900;
+	font-size: 4em;
+	font-family: "Playfair Display", Georgia, serif;
+	line-height: 1;
+}
+
+#slides2{
+	position: relative;
+	width: 640px;
+	height: 340px;
+	margin: 70px auto 0;
+	padding: 0;
+	background-color: #fff;
+	-moz-box-shadow:0 0 22px #111;
+	-webkit-box-shadow:0 0 22px #111;
+	box-shadow:0 0 22px #111;
+}
+
+.gallery__container{
+	position: absolute;
+	width: 620px;
+	height: 320px;
+	left: 10px;
+	top: 10px;
+	overflow: hidden;
+	list-style: none outside none;
+}
+.gellery__item{
+	display: none;
+}
+.gallery__item:first-child{
+	display: inline-block;
+	z-index: 100;
+}
+.gallery__item .item--current{
+	z-index: 100;
+}
+.gallery__item canvas{
+	display: none;
+	position: absolute;
+	z-index: 100;
+}
+
+
+.gallery__nav{
+	height:86px;
+	width:60px;
+	position:absolute;
+	background:url('../images/arrows.png') no-repeat;
+	top:50%;
+	margin-top:-43px;
+	cursor:pointer;
+	z-index:5000;
+}
+
+.nav--prev{
+	background-position:left top;
+	left:0;
+}
+.nav--prev:hover{
+	background-position:left bottom;
+}
+
+.nav--next{
+	background-position: right top;
+	right: 0;
+}
+.nav--next:hover{
+	background-position: right bottom;
+}
+
+.gallery__control{
+	width: 100%;
+	position: absolute;
+	bottom: 50px;
+	text-align: center;
+}
+.gallery__control li{
+	margin: 0 6px;
+	display: inline-block;
+	zoom: 1;
+
+}
+.gallery__control a{
+	width: 11px;
+    height: 11px;
+    display: block;
+    background: #acacac; 
+    opacity: 0.5;
+    cursor: pointer;
+    text-indent: -9999px;
+
+	box-shadow: 0, 0, 3px, rgba(0,0,0,0.3), inset;
+    border-radius: 20px ;
+    cursor: default;
+}
+.gallery__control a:hover{
+	 background: #fff; 
+     opacity: 0.7;
+     cursor: pointer;
+}
+.gallery__control .control--active{
+	background: #ececec; 
+    opacity: 0.8;
+}
