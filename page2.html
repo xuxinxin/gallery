@@ -4,13 +4,15 @@
 	<meta charset="UTF-8">
 	<title>中山公园</title>
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/page2.css">
 </head>
 <body>
 	<div class="metabar metabar--top">
 		<div class="metabar__leftblock">
 		<a href="index.html"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
-		<a href="" class="randomLink"><i class="fa fa-fw fa-paper-plane"></i><span>First page</span></a>
+		<a href="page1.html" class="randomLink"><i class="fa fa-fw fa-circle-o"></i><span>First page</span></a>
+		<a href="page2.html" class="randomLink"><i class="fa fa-fw fa-circle-o"></i><span>First page</span></a>
 		</div>
 		
 	</div>
@@ -45,13 +47,71 @@
 	<!--script type="text/javascript" src="js/page2.js"></script-->
 	<script type="text/javascript" src="js/jquery.galleryFilter.js"></script>
 	<script type="text/javascript">
-		setInterval(function(){
-			var randomValue = Math.floor(Math.random()*2)+1,
-				randomURL = 'page'+randomValue+'.html';
-			$('.randomLink').attr('href', randomURL);
-		}, 5000);
 
 		$('#slides2').galleryFilter();
+			//Use  jQuery is much more easier!
+			topbar = document.querySelector('.metabar--top');
+	        function handleMouseWheel(event){
+	            var delta = getWheelDelta(event);
+	           	console.log(delta);
+	           	if(delta >= 120){
+	           		__addClass(topbar, 'top--active');
+	           		clearTopbar = setTimeout(function(){
+	           			__removeClass(topbar, 'top--active');
+	           		},1800);
+	           	}else{
+	           		if(clearTopbar){
+	           			clearTimeout(clearTopbar);
+	           			clearTopbar = null;
+	           			__removeClass(topbar, 'top--active');
+	           		}
+	           	}
+	        }
+
+	        addHandler(document, "mousewheel", handleMouseWheel);
+	        addHandler(document, "DOMMouseScroll", handleMouseWheel);
+
+
+	        function getWheelDelta(event){
+	            if (event.wheelDelta){
+	                return event.wheelDelta;
+	            } else {
+	                return -event.detail * 40;
+	            }
+	        }
+
+	        function addHandler(element, type, handler){
+		        if (element.addEventListener){
+		            element.addEventListener(type, handler, false);
+		        } else if (element.attachEvent){
+		            element.attachEvent("on" + type, handler);
+		        } else {
+		            element["on" + type] = handler;
+		        }
+		    }
+
+		    function __addClass(target, name){
+		    	if(!__hasClass(target,name)){
+		    		if(target.className){
+		    			target.className += " "+name;
+		    		}else{
+		    			target.className = name;
+		    		}
+		    	}
+		    	return true;
+		    }
+
+		    function __hasClass(target, name){
+		    	var pattern = new RegExp('(^|\\s+)'+name+'(\\s+|$)');
+		    	return pattern.test(target.className);
+		    }
+
+		    function __removeClass(target, name){
+		    	if(__hasClass(target,name)){
+		    		var pattern = new RegExp('(^|\\s+)'+name+'(\\s+|$)');
+		    		target.className = target.className.replace(pattern, '');
+		    	}
+		    }
 	</script>
 </body>
 </html>

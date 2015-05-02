@@ -57,6 +57,10 @@ a:hover, a:active {font-weight: bold;}
 	opacity: 0.95;
 }
 
+.metabar--top.top--active{
+	opacity: 0.95;
+}
+
 .metabar__leftblock a{
 	float: left;
 	margin-left: 15px;

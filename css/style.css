@@ -1,0 +1,88 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,600,700);
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+}
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0;padding: 0;}
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+body{
+	background-color: #2a2e39;
+	color: #fff;
+	margin: 0;
+	height: 100%;
+	width: 100%
+}
+
+a:link, a:visited {color: #fff; text-decoration: none;}
+a:hover, a:active {font-weight: bold;}
+
+
+/* =全局类 */
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.metabar{
+	position: fixed;
+	display: block;
+	width: 100%;
+	z-index: 500;
+	font-size: 14px;
+	background-color: #2f2f3f;
+	color: rgba(255, 255, 255, 1);
+	font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font-style: normal;
+	box-sizing: border-box;
+	opacity: 0;
+	transition: opacity .5s;
+}
+
+.metabar--top{
+	top: 0;
+	height: 65px;
+	line-height: 65px;
+}
+
+.metabar--top:hover{
+	opacity: 0.95;
+}
+
+.metabar--top.top--active{
+	opacity: 0.95;
+}
+
+.metabar__leftblock a{
+	float: left;
+	margin-left: 15px;
+	text-align: center;
+	font-size: 2em;
+}
+
+.metabar__leftblock a:first-child{
+	margin-left: 5px;
+}
+.metabar__leftblock span{
+	display: none;
+	overflow: hidden;
+}
+
+
+
+.slides__title{
+	text-align: center;
+	margin: 30px 0 10px;
+	font-weight: 900;
+	font-size: 4em;
+	font-family: "Playfair Display", Georgia, serif;
+	line-height: 1;
+}
