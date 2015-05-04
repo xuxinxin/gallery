@@ -42,7 +42,7 @@ body{
 }
 .nav--prev{
 	position: absolute;
-	margin-left: -50px;
+	margin-left: -100px;
 	top:50%;
 	margin-top: -45px;
 }

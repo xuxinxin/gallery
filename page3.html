@@ -28,7 +28,7 @@
 			<li class="gallery__item"><img src="images/item005.jpg" alt="首义广场" width="620" height="360"></li>
 			<li class="gallery__item"><img src="images/item006.jpg" alt="首义广场" width="620" height="360"></li>
 		</ul>
-		<!--span class="gallery__nav nav--prev"><i class="fa fa-angle-left"></i></span-->
+		<span class="gallery__nav nav--prev"><i class="fa fa-angle-left"></i></span>
 		<span class="gallery__nav nav--next"><i class="fa fa-angle-right"></i></span>
 	</div>
 	<script src="js/jquery.min.js"></script>
@@ -49,10 +49,10 @@
 				    	initTopbar();
 				    },
 				    initEvents = function(){
-				    	//$nav.eq(0).on('click', function(){
-				    	//	slides.previous();
-				    	//});
 				    	$nav.eq(0).on('click', function(){
+				    		slides.previous();
+				    	});
+				    	$nav.eq(1).on('click', function(){
 				    		console.log('click next');
 				    		slides.next();
 				    	});

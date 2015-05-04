@@ -177,8 +177,6 @@
 
 			});
 
-
-
 		},
 		_navigate : function(dir, pos) {
 			if( this.isAnimating || !this.isReady || this.itemsCount<2){
@@ -215,33 +213,37 @@
 					'transform':'translate(-600px,' +rh+'px)' + ' rotate('+rr+'deg)'
 				});
 				setTimeout(function(){
-					$current.css({
-						'z-index': ''+this.zindex,
-						'transform': 'translate(0,0) '+'rotate('+r+'deg)'
-					});
-					console.log(this.zindex);
-					this.zindex = this.zindex-1;
 					$next.css({
+						'z-index': '100',
 						'transform':'rotate(0)'
 					});
+					$current.css({
+						'z-index' : this.zindex,
+						'transform': 'translate(0,0) '+'rotate('+r+'deg)'
+					})
+					console.log(this.zindex);
+					this.zindex = this.zindex-1;
 					this.isAnimating = false;
 				}.bind(this),2000)
 			}else if(dir == 'prev'){
 				this.zindex = this.zindex+1;
 				$next.css({
-					'transform':'translate(-600px, 360px)'
+					'transform':'translate(-600px,' +rh+'px)' + ' rotate('+rr+'deg)'
 				});
 				setTimeout(function(){
 					$next.css({
-						'z-index': 100+this.zindex,
-					}).css({
+						'z-index': '100',
 						'transform': 'translate(0,0)'
 					});
+					$current.css({
+						'z-index': this.zindex+this.itemsCount-1
+					})
+					this.isAnimating = false;
 					console.log(this.zindex);
 					$current.css({
 						'transform':'rotate('+r+'deg)'
 					});
-					this.isAnimating = false;
+					
 				}.bind(this),2000)
 			}
 		},
