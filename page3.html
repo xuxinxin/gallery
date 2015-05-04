@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>首义广场</title>
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/page3.css">
+</head>
+<body>
+	<div class="metabar metabar--top">
+		<div class="metabar__leftblock">
+		<a href="index.html"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
+		<a href="page1.html" class="randomLink"><i class="fa fa-fw fa-circle-o"></i><span>First page</span></a>
+		<a href="page2.html" class="randomLink"><i class="fa fa-fw fa-circle-o"></i><span>Second page</span></a>
+		<a href="page3.html" class="randomLink"><i class="fa fa-fw fa-circle-o"></i><span>Third page</span></a>
+		</div>
+	</div>
+	<header class="slides__title">
+		Enjoy the city &amp our life!
+	</header>
+	<div id="slides3">
+		<ul class="gallery__container">
+			<li class="gallery__item"><img src="images/item001.jpg" alt="首义广场" width="620" height="360"></li>
+			<li class="gallery__item"><img src="images/item002.jpg" alt="首义广场" width="620" height="360"></li>
+			<li class="gallery__item"><img src="images/item003.jpg" alt="首义广场" width="620" height="360"></li>
+			<li class="gallery__item"><img src="images/item004.jpg" alt="首义广场" width="620" height="360"></li>
+			<li class="gallery__item"><img src="images/item005.jpg" alt="首义广场" width="620" height="360"></li>
+			<li class="gallery__item"><img src="images/item006.jpg" alt="首义广场" width="620" height="360"></li>
+		</ul>
+		<!--span class="gallery__nav nav--prev"><i class="fa fa-angle-left"></i></span-->
+		<span class="gallery__nav nav--next"><i class="fa fa-angle-right"></i></span>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.galleryStack.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var page = (function(){
+				var $nav = $('.gallery__nav').hide(),
+				    slides = $('#slides3').galleryStack({
+				    	onReady : function(){
+				    		$nav.show();
+				    		console.log('ready');
+				    	}
+				    }),
+
+				    init = function(){
+				    	initEvents();
+				    	initTopbar();
+				    },
+				    initEvents = function(){
+				    	//$nav.eq(0).on('click', function(){
+				    	//	slides.previous();
+				    	//});
+				    	$nav.eq(0).on('click', function(){
+				    		console.log('click next');
+				    		slides.next();
+				    	});
+				    },
+				    initTopbar = function(){
+				    	topbar = document.querySelector('.metabar--top');
+				        function handleMouseWheel(event){
+				            var delta = getWheelDelta(event);
+				           	console.log(delta);
+				           	if(delta >= 120){
+				           		__addClass(topbar, 'top--active');
+				           		clearTopbar = setTimeout(function(){
+				           			__removeClass(topbar, 'top--active');
+				           		},1800);
+				           	}else{
+				           		if(clearTopbar){
+				           			clearTimeout(clearTopbar);
+				           			clearTopbar = null;
+				           			__removeClass(topbar, 'top--active');
+				           		}
+				           	}
+				        }
+
+				        addHandler(document, "mousewheel", handleMouseWheel);
+				        addHandler(document, "DOMMouseScroll", handleMouseWheel);
+
+
+				        function getWheelDelta(event){
+				            if (event.wheelDelta){
+				                return event.wheelDelta;
+				            } else {
+				                return -event.detail * 40;
+				            }
+				        }
+
+				        function addHandler(element, type, handler){
+					        if (element.addEventListener){
+					            element.addEventListener(type, handler, false);
+					        } else if (element.attachEvent){
+					            element.attachEvent("on" + type, handler);
+					        } else {
+					            element["on" + type] = handler;
+					        }
+					    }
+
+					    function __addClass(target, name){
+					    	if(!__hasClass(target,name)){
+					    		if(target.className){
+					    			target.className += " "+name;
+					    		}else{
+					    			target.className = name;
+					    		}
+					    	}
+					    	return true;
+					    }
+
+					    function __hasClass(target, name){
+					    	var pattern = new RegExp('(^|\\s+)'+name+'(\\s+|$)');
+					    	return pattern.test(target.className);
+					    }
+
+					    function __removeClass(target, name){
+					    	if(__hasClass(target,name)){
+					    		var pattern = new RegExp('(^|\\s+)'+name+'(\\s+|$)');
+					    		target.className = target.className.replace(pattern, '');
+					    	}
+					    }
+
+				    };
+				    
+				    return {init : init};
+			})();
+			page.init();
+		});
+		
+	</script>
+
+
+</body>
+</html>
